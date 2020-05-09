@@ -3,6 +3,7 @@ var http = require('http');
 var fs = require('fs');
 var path = require('path');
 var b = require('bonescript');
+var volume = 0;
 
 // Create a variable called led, which refers to P9_14
 var led = "P9_14";
@@ -51,7 +52,10 @@ function handleChangeState(data) {
     var newData = JSON.parse(data);
     console.log("LED = " + newData.state);
     // turns the LED ON or OFF
-    b.digitalWrite(led, newData.state);
+    // causing huge delays and won't work if server is killed and restarted
+    //b.digitalWrite(led, newData.state);
+    volume = volume + newData.state;
+    console.log("Volume = " + volume)
 }
 
 // Displaying a console message for user feedback

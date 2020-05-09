@@ -17,7 +17,7 @@
             }
             else if (state==0){
                 // Emit message changing the state to 0
-                socket.emit('changeState', '{"state":0}');
+                socket.emit('changeState', '{"state":-1}');
                 // Change led status on web page to OFF
                 document.getElementById("outputStatus").innerHTML = "Status: OFF";
             }
@@ -28,8 +28,8 @@
     <div>
     <h2>VOLUME</h2>
     <p id="outputStatus">Status</p>
-    <button type="button" onclick="changeState(1);">ON</button>
-    <button type="button" onclick="changeState(0);">OFF</button>
+    <button type="button" onclick="changeState(1);">UP</button>
+    <button type="button" onclick="changeState(0);">DOWN</button>
 </div>
 </body>
 </html>
